@@ -1,0 +1,19 @@
+import pandas as pd
+from pandas_datareader import data
+
+tickers = ['AAPL','MCO']
+data_source = 'google'
+start_date = '2016-01-01'
+end_date = '2017-01-01'
+for ticker in tickers:
+    share_data = data.DataReader(ticker, "yahoo", start_date, end_date)
+    print(ticker)
+    print(share_data.tail())
+
+def _download_sp500():
+    ticker_list = pd.read_csv('https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents-financials.csv')
+    print(ticker_list.tail())
+
+
+_download_sp500()
+
